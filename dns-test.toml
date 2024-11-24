@@ -1,2 +1,10 @@
 [log]
 syslog = false # for debug
+
+[dns]
+listen = ["127.0.0.1:8853"] # required param, example
+uplink = ["8.8.8.8", "8.8.4.4", "1.1.1.1:53", "1.0.0.1:53"] # required param, example
+domains = "domains.txt" # required param
+a = "10.10.10.10" # nx nomain if inset or invalid
+aaaa = "2001:db8::1" # nxdomain if unset or invalid
+ttl = 3600 # default to 3600

@@ -7,6 +7,9 @@ import (
 
 	"github.com/andrewz1/xlog"
 	"github.com/andrewz1/xtoml"
+
+	"github.com/andrewz1/dns-test/dnsclt"
+	"github.com/andrewz1/dns-test/dnssrv"
 )
 
 var (
@@ -52,6 +55,12 @@ func main() {
 		xlog.Fatal(err)
 	}
 	// main logic start
+	if err = dnsclt.Init(xc); err != nil {
+		xlog.Fatal(err)
+	}
+	if err = dnssrv.Init(xc); err != nil {
+		xlog.Fatal(err)
+	}
 	// main logic end
 	xlog.Info(sigWait(sc))
 }
